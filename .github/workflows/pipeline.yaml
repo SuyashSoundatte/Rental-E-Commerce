@@ -1,0 +1,97 @@
+name: lint-test-build-push workflow
+
+on: 
+    push: 
+        branches: [main]
+
+jobs:
+    linting:
+        name: Run Linter
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v4
+            
+            -   name: Setting up node.js required version
+                uses: actions/setup-node@v4
+                with:
+                    node-version: 22
+            
+            -   name: installing yarn
+                run: npm i -g yarn
+            
+            -   name: install dependecies
+                run: yarn
+            
+            -   name: running lint script
+                run: yarn lint
+
+    testing:
+        name: Run Tests
+        needs: linting
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v4
+            
+            - name: setup node.js latest
+              uses: actions/setup-node@v4
+              with:
+                node-version: 22
+            
+            - name: install yarn
+              run: npm i -g yarn
+
+            - name: install dependecies
+              run: yarn
+            
+            - name: Testing code
+              run: yarn test
+
+    build-push-image:
+        name: Build and Deploy code
+        needs: 
+            - linting
+            - testing
+        runs-on: ubuntu-latest
+        steps:
+                - name: Checkout repository
+                  uses: actions/checkout@v4
+          
+                - name: Log in to the Container registry
+                  uses: docker/login-action@v3
+                  with:
+                    registry: <yet-to-be-decided>
+                    username: ${{ github.actor }}
+                    password: ${{ secrets.GITHUB_TOKEN }}
+          
+                - name: Build and push Docker image
+                  uses: docker/build-push-action@v6
+                  with:
+                    context: .
+                    push: true
+                    tags: |
+                      <docker-hub>/<image-repo>/image-name:latest
+                      <docker-hub>/<image-repo>/image-name:${{ github.sha }}
+    
+    deploy:
+        runs-on: ubuntu-latest
+        needs:
+            - build-push-image
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v2
+                    
+            -   name: create env file
+                run: |
+                    echo "GIT_COMMIT_HASH=${{ github.sha }}" >> ./envfile
+    
+            -   name: Docker Stack Deploy
+                uses: cssnr/stack-deploy-action@v1
+                with:
+                    name: zenfulstats
+                    file: docker-stack.yaml
+                    host: zenful.site
+                    user: deploy
+                    ssh_key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+                    env_file: ./envfile
