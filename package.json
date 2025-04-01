@@ -1,0 +1,16 @@
+{
+  "name": "rental-e-commerce",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -n analytics,inventory,web -c green,blue,magenta \"cd analytics && yarn dev\" \"cd inventory-mgmt && yarn dev\" \"cd web && yarn dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
