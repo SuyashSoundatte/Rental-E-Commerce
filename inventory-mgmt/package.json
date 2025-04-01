@@ -2,7 +2,7 @@
   "name": "@rental-e-commerce/inventory-mgmt",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "private":true,
+  "private": true,
   "scripts": {
     "build": "tsc -b",
     "start": "node dist/index.js",
@@ -18,5 +18,8 @@
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
     "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
   }
 }
