@@ -7,7 +7,7 @@ COPY package*.json ./ yarn.lock ./ tsconfig.json ./
 
 COPY src ./src
 
-RUN yarn install --frozen-lockfile
+RUN yarn install 
 
 RUN yarn build 
 
@@ -15,7 +15,7 @@ RUN yarn build
 # for production 
 FROM node:22-alpine AS production
 
-WORKDIR /app
+WORKDIR /appr
 
 COPY package.json yarn.lock ./
 
