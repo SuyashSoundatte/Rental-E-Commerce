@@ -1,6 +1,7 @@
 // pages/vendor/BecomeSellerPage.tsx
 
 import React, { useState } from "react"
+import { Users, CreditCard, Percent, Headset, ShoppingBag } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,6 +15,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Link } from "@tanstack/react-router"
 import { ChevronDown, Menu, X } from "lucide-react"
+import { Carousel } from "@/components/ui/carousel"
 const BecomeSellerPage = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -62,18 +64,54 @@ const BecomeSellerPage = () => {
       </NavigationMenuLink>
     </li>
   ))
-
   ListItem.displayName = "ListItem"
+
+  const slideData = [
+    {
+      title: "Explore the Universe",
+      description: "Discover the mysteries of the cosmos with our latest space exploration series.",
+      // button: "Learn More",
+      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Wildlife Wonders",
+      description: "Get up close with nature and explore the beauty of wildlife photography.",
+      // button: "View Gallery",
+      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Tech Innovations",
+      description: "Stay ahead with the latest trends in AI, robotics, and emerging technology.",
+      // button: "Read More",
+      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Adventure Awaits",
+      description: "Plan your next thrilling adventure with our top travel destinations.",
+      // button: "Get Started",
+      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Culinary Delights",
+      description: "Experience the world of flavors with our top chef-recommended recipes.",
+      // button: "Try Now",
+      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+  ];
+
+  // <Carousel slides={slides} />;
+
+
   return (
     <>
-      <div className="h-screen w-full">
-        <div className="w-full px-4 md:px-14 py-4 md:py-8 fixed flex items-center justify-between text-black bg-white z-50">
+      <div className="h-screen w-full flex flex-col">
+        <div className="w-full bg-white px-4 md:px-12 py-4 md:py-6 fixed flex items-center justify-between text-black z-50">
           <nav className="flex items-center justify-between w-full max-w-8xl mx-auto">
             {/* Desktop Navigation - hidden on mobile */}
             <div className="flex items-center gap-10">
               {/* Left - Brand Name */}
               <div className='flex items-center gap-2'>
-                <div className="w-6 h-6 rounded-full bg-[#F3EE04] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-[#F3EE04] flex items-center justify-center">
                   <span className="text-[#027CD5] font-bold text-sm">B</span>
                 </div>
                 <div className="text-xl text-black">BugBasket</div>
@@ -243,7 +281,7 @@ const BecomeSellerPage = () => {
             {/* Right - Auth Buttons - hidden on mobile */}
             <div className="hidden md:flex gap-6 items-center text-md font-medium">
               <Link to="/">
-              <h1>Log In</h1>
+                <h1>Log In</h1>
               </Link>
               <Link to="/">
                 <h1 className="bg-[#FFCD00] p-3">Start Renting</h1>
@@ -251,9 +289,40 @@ const BecomeSellerPage = () => {
             </div>
           </nav>
         </div>
-        <hr />
-        <main>
-          <h1>Sell With BugBasket</h1>
+        {/* <hr /> */}
+        <main className="">
+          {/* first hero section */}
+          {/* <div className="w-full mt-20 bg-cover bg-center py-12 px-4 md:px-18"
+            style={{ backgroundImage: "url('https://static-assets-web.flixcart.com/fk-sp-static/images/prelogin/banner/Desktop_sell.webp')" }}>
+            <h1 className="text-4xl font-semibold text-gray-900 mb-24">Rent online with BugBasket</h1>
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-5 gap-4 bg-white shadow-lg rounded-lg p-6">
+              <div className="flex flex-col items-center text-center">
+                <Users className="w-8 h-8 text-blue-500" />
+                <p className="mt-2 text-sm text-gray-700">45 crore+ BugBasket users</p>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <CreditCard className="w-8 h-8 text-blue-500" />
+                <p className="mt-2 text-sm text-gray-700">7* days secure & regular payments</p>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <Percent className="w-8 h-8 text-blue-500" />
+                <p className="mt-2 text-sm text-gray-700">Low cost of renting</p>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <Headset className="w-8 h-8 text-blue-500" />
+                <p className="mt-2 text-sm text-gray-700">One-click Customer Support</p>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <ShoppingBag className="w-8 h-8 text-blue-500" />
+                <p className="mt-2 text-sm text-gray-700">Access to exclusive rental deals</p>
+              </div>
+            </div>
+          </div> */}
+
+          {/* //2nd hero section */}
+          <div className="relative overflow-hidden w-full h-full py-20">
+            <Carousel slides={slideData} />
+          </div>
         </main>
       </div>
     </>
