@@ -1,9 +1,10 @@
-import React from 'react'
+import { RouterProvider } from '@tanstack/react-router'
+import router from './router'
 
-function App() {
+export default function App() {
   return (
-    <div className='h-screen bg-[#212121] text-white flex justify-center items-center'>App</div>
+    <>
+      <RouterProvider router={router} />
+    </>
   )
 }
-
-export default App
