@@ -1,5 +1,5 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
-import Navbar from "../components/ui/Navbar";
+// import Navbar from "../components/ui/Navbar";
 import NotFound from "../components/NotFound";
 
 export const Route = createRootRoute({
@@ -10,9 +10,9 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <>
-      <Navbar />
-      <hr className="border-gray-300" />
-      <Outlet />
+      <div className="min-h-screen w-full">
+        <Outlet />
+      </div>
     </>
   );
 }
