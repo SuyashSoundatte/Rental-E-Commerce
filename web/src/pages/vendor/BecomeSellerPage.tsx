@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button"
 import { Link } from "@tanstack/react-router"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { Carousel } from "@/components/ui/carousel"
+import StickyBar from "@/components/ui/StickyBar";
 const BecomeSellerPage = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -99,7 +100,16 @@ const BecomeSellerPage = () => {
     },
   ];
 
-  // <Carousel slides={slides} />;
+  const sections = [
+    { id: "section1", label: "Create Account" },
+    { id: "section2", label: "List Products" },
+    { id: "section3", label: "Storage & Shipping" },
+    { id: "section4", label: "Receive Payments" },
+    { id: "section5", label: "Grow Faster" },
+    { id: "section6", label: "Seller App" },
+    { id: "section7", label: "Help & Support" },
+  ];
+  
 
 
   return (
@@ -320,8 +330,15 @@ const BecomeSellerPage = () => {
           </div> */}
 
           {/* //2nd hero section */}
-          <div className="relative overflow-hidden w-full h-full py-20">
+          <div className="relative overflow-hidden w-full h-fit bg-pink-400 mt-20">
             <Carousel slides={slideData} />
+          </div>
+
+          <div className="w-full h-64 bg-gray-400 ">
+            <h1>Some other content</h1>
+          </div>
+          <div className="info">
+             <StickyBar sections={sections} />;
           </div>
         </main>
       </div>

@@ -18,14 +18,14 @@ interface SlideProps {
 const Slide = ({ slide, index, current }: SlideProps) => {
   return (
     <div
-      className="absolute top-0 left-0 w-full h-[60vh] flex items-center justify-center transition-transform duration-1000 ease-in-out bg-white p-6"
+      className="absolute top-0 left-0 w-full h-full flex items-center justify-center transition-transform duration-1000 ease-in-out bg-white p-6"
       style={{ transform: `translateX(${(index - current) * 100}%)` }}
     >
       <div className="flex flex-col md:flex-row items-center md:items-start w-full max-w-6xl mx-auto">
         <div className="text-left md:w-1/2 p-6">
           <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900">{slide.title}</h2>
           <p className="mt-2 text-sm md:text-lg text-gray-700">{slide.description}</p>
-          <button className="mt-4 px-6 py-2 bg-[#FFCD00] text-white rounded-lg shadow-md hover:bg-pink-600 transition">
+          <button className="mt-4 px-6 py-2 bg-[#FFCD00] text-black shadow-md transition">
             {/* {slide.button} */}
             Enroll Now
           </button>
