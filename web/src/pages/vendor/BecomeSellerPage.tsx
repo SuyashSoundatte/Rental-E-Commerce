@@ -69,36 +69,21 @@ const BecomeSellerPage = () => {
 
   const slideData = [
     {
-      title: "Explore the Universe",
-      description: "Discover the mysteries of the cosmos with our latest space exploration series.",
-      // button: "Learn More",
-      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Start Your Seller Journey",
+      description: "Join thousands of successful sellers on BugBasket and reach millions of customers.",
+      src: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
-      title: "Wildlife Wonders",
-      description: "Get up close with nature and explore the beauty of wildlife photography.",
-      // button: "View Gallery",
-      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Grow Your Business",
+      description: "Access powerful tools and insights to scale your business on our platform.",
+      src: "https://images.unsplash.com/photo-1556740772-1a741367b93e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
-      title: "Tech Innovations",
-      description: "Stay ahead with the latest trends in AI, robotics, and emerging technology.",
-      // button: "Read More",
-      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Seamless Experience",
+      description: "Our seller dashboard makes managing your products and orders effortless.",
+      src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
-    {
-      title: "Adventure Awaits",
-      description: "Plan your next thrilling adventure with our top travel destinations.",
-      // button: "Get Started",
-      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      title: "Culinary Delights",
-      description: "Experience the world of flavors with our top chef-recommended recipes.",
-      // button: "Try Now",
-      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-  ];
+  ]
 
   const sections = [
     { id: "section1", label: "Create Account" },
