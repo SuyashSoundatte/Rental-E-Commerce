@@ -10,23 +10,16 @@ RUN yarn install
 
 COPY src ./src
 
-<<<<<<< Updated upstream
-RUN yarn install --frozen-lockfile
-=======
->>>>>>> Stashed changes
 
 RUN yarn build 
 
 
 FROM node:22-alpine AS prodbuilder
 
-<<<<<<< Updated upstream
-=======
 RUN addgroup -S appgrp && adduser -S app -G appgrp
 
 USER app
 
->>>>>>> Stashed changes
 WORKDIR /app
 
 COPY package.json yarn.lock ./

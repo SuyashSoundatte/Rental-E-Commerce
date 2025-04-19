@@ -7,12 +7,25 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+<<<<<<< Updated upstream
     "preview": "vite preview"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
     "@tailwindcss/vite": "^4.0.17",
     "@tanstack/react-router": "^1.114.29",
+=======
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@radix-ui/react-navigation-menu": "^1.2.5",
+    "@radix-ui/react-slot": "^1.2.0",
+    "@tabler/icons-react": "^3.31.0",
+    "@tailwindcss/vite": "^4.1.1",
+    "@tanstack/react-router": "^1.114.34",
+>>>>>>> Stashed changes
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.486.0",
