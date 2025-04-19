@@ -9,17 +9,7 @@
     "printWidth": 100,
     "proseWrap": "preserve",
     "overrides": [
-        {
-            "files": "*.json",
-            "options": {
-                "tabWidth": 2
-            }
-        },
-        {
-            "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-            "options": {
-                "tabWidth": 4
-            }
-        }
+        { "files": "*.json", "options": { "tabWidth": 2 } },
+        { "files": ["*.ts", "*.tsx", "*.js", "*.jsx"], "options": { "tabWidth": 4 } }
     ]
 }
